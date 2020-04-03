@@ -3,24 +3,11 @@ v2 for SDC project
 
 ### POST
 
-`/api/houses/create`
+`/api/houses/{ houseId }/images`
 
-**Purpose**: Adding a new house
+**Purpose**: Adding a new image of the house
 
 **Expects**: An object describing a house
-```json
-{
-  "id": int,
-  "neighborhood": string,
-  "home_cost": int,
-  "bedrooms": int,
-  "bathrooms": int,
-  "home_address": string,
-  "sf": int,
-  "home_image": url string,
-  "heart_filled": boolean
-}
-```
 
 ______________________________________________________
 ### GET
@@ -119,7 +106,7 @@ ______________________________________________________
 ______________________________________________________
 ### DELETE
 
-`/api/houses/delete/{ houseId }`
+`/api/houses/{ houseId }/delete`
 
 **Purpose**: Removing a house.
 
