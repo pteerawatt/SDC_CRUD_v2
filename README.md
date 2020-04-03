@@ -17,21 +17,23 @@ ______________________________________________________
 **Response**: JSON object containing a house's information
 ```json
 {
-  "id": int,
-  "neighborhood": string,
-  "home_cost": int,
-  "bedrooms": int,
-  "bathrooms": int,
-  "home_address": string,
-  "sf": int,
-  "home_image": url string,
-  "heart_filled": boolean
+      "id": int,
+      "neighborhood": string,
+      "home_cost": int,
+      "bedrooms": int,
+      "bathrooms": int,
+      "home_address": string,
+      "sf": int,
+      "home_image": url string,
+      "heart_filled": boolean
 }
 ```
 
+
+
 `/api/houses/{ houseId }/neighborhood`
 
-**Purpose**: Retrieving nearby restaurants
+**Purpose**: Retrieving nearby houses
 
 **Data Params**
 
@@ -40,15 +42,17 @@ ______________________________________________________
 **Response**: JSON object containing an array of homes in the neighborhood.
 ```json
 [
-  "id": int,
-  "neighborhood": string,
-  "home_cost": int,
-  "bedrooms": int,
-  "bathrooms": int,
-  "home_address": string,
-  "sf": int,
-  "home_image": url string,
-  "heart_filled": boolean
+    {
+        "id": int,
+        "neighborhood": string,
+        "home_cost": int,
+        "bedrooms": int,
+        "bathrooms": int,
+        "home_address": string,
+        "sf": int,
+        "home_image": url string,
+        "heart_filled": boolean
+    }
 ]
 ```
 
