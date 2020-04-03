@@ -7,8 +7,6 @@ v2 for SDC project
 
 **Purpose**: Adding a new image of the house
 
-**Expects**: An object describing a house
-
 ______________________________________________________
 ### GET
 
