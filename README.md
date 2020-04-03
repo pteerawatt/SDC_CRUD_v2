@@ -3,132 +3,126 @@ v2 for SDC project
 
 ### POST
 
-`/api/restaurants/:restaurantID/dishes`
+`/api/houses/create`
 
-**Purpose**: Adding a dish to a restaurant
+**Purpose**: Adding a new house
 
-**Expects**: An object describing a menu item with the following properties...
+**Expects**: An object describing a house
 ```json
 {
-  "dish_name": "<str>",
-  "price": "<num>",
-  "description": "<text>",
+  "id": int,
+  "neighborhood": string,
+  "home_cost": int,
+  "bedrooms": int,
+  "bathrooms": int,
+  "home_address": string,
+  "sf": int,
+  "home_image": .jpg file,
+  "heart_filled": boolean
 }
 ```
 
-`/api/restaurants/:restaurantID/dishes/:dishID/reviews`
-
-**Purpose**: Adding a review to a dish
-
-**Expects**: An object with the following properties...
-*note:* API does not currently support image uploading
-```json
-{
-  "date_time": "<date>",
-  "rating": "<int>",
-  "review_text": "<text>",
-  "user": {
-    "user_id": "<varchar>",
-  },
-  "photo": {
-    "url": "<varchar>",
-    "caption": "<varchar>"
-  }
-}
-```
 ______________________________________________________
 ### GET
 
-`/api/restaurants/:restaurantID/dishes`
+`/api/houses/{ houseId }`
 
-**Purpose**: Retrieving all of a restaurant's popular-dishes related data
+**Purpose**: Get all the information on a house
 
-**Response**: JSON object containing an array of popular dishes, reviews for each dish, etc...
+**Response**: JSON object containing a house's information
 ```json
 {
-  "restaurant_id": "<varchar>",
-  "restaurant_name": "<str>",
-  "popularDishes": [
-    {
-      "dish_id": "<varchar>",
-      "dish_name": "<str>",
-      "price": "<num>",
-      "description": "<text>",
-      "reviews": [
-        {
-          "review_id": "<varchar>",
-          "date_time": "<date>",
-          "rating": "<int>",
-          "review_text": "<text>",
-          "user_id": "<varchar>",
-          "username": "<varchar>",
-          "user_photo": "<varchar>",
-          "photo_id": "<varchar>",
-          "photo_url": "<varchar>",
-          "photo_caption": "<varchar>"
-        }
-      ]
-    }
-  ]
+  "id": int,
+  "neighborhood": string,
+  "home_cost": int,
+  "bedrooms": int,
+  "bathrooms": int,
+  "home_address": string,
+  "sf": int,
+  "home_image": .jpg file,
+  "heart_filled": boolean
 }
 ```
 
-`/api/restaurants/:restaurantID/nearby`
+`/api/houses/{ houseId }/neighborhood`
 
 **Purpose**: Retrieving nearby restaurants
 
-**Response**: JSON object containing an array of nearby restaurants...
+**Data Params**
+
+`{ name: <neightborhood name> }`
+
+**Response**: JSON object containing an array of homes in the neighborhood.
 ```json
 [
-  {
-    "restaurant_id": "<varchar>"
-  }
+  "id": int,
+  "neighborhood": string,
+  "home_cost": int,
+  "bedrooms": int,
+  "bathrooms": int,
+  "home_address": string,
+  "sf": int,
+  "home_image": .jpg file,
+  "heart_filled": boolean
 ]
 ```
 
-______________________________________________________
-### PUT
+`/api/houses/{ houseId }/likes`
 
-`/api/restaurants/:restaurantID`
+**Purpose**: Retrieving like status of a house.
 
-**Purpose**: Updating a restaurant's dish
+**Data Params**
 
-**Expects**: An object with the following properties...
+`{ houseId: <int> }`
+
+**Response**: like status of a house.
+
 ```json
-{
-  "dish_name": "<str>",
-  "price": "<num>",
-  "description": "<text>",
-}
+[
+  {
+        "heart_filled": <int>
+    }
+]
 ```
 
-`/api/restaurants/:restaurantID/dishes/:dishID`
+`/api/neighborhoods`
 
-**Purpose**: Updating a dish's review
+**Purpose**: Retriving the neighborhood information.
 
-**Expects**: An object with the following properties...
-*note:* API does not currently support image uploading
+**Data Params**
+
+`{ name: <neighborhood name> }`
+
+**Response**: like status of a house.
+
 ```json
 {
-  "date_time": "<date>",
-  "rating": "<int>",
-  "review_text": "<text>",
-  "user": {
-    "user_id": "<varchar>",
-  },
-  "photo": {
-    "url": "<varchar>",
-    "caption": "<varchar>"
+ "id": int,
+ "neighborhood": string,
+ "transit_score": int,
+ "walk_score": int,
+ "value_inc_dec_past": int,
+ "value_inc_dec_future": int,
+ "median_value": int
   }
-}
 ```
+______________________________________________________
+### PATCH
+
+`/api/houses/{ houseId }/likes`
+
+**Purpose**: Update like status of a house.
+
+**Data Params**
+
+`{ houseId: int }`
 ______________________________________________________
 ### DELETE
 
-`/api/restaurants/:restaurantID/dishes/:dishID`
+`/api/houses/delete/{ houseId }`
 
-**Purpose**: Removing a restaurant's dish
+**Purpose**: Removing a house.
 
-`/api/restaurants/:restaurantID/dishes/:dishID/reviews/:reviewID`
+**Data Params**
 
-**Purpose**: Removing a review from a popular dish
+`{ houseId: int }`
