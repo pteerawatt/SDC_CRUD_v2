@@ -17,7 +17,7 @@ v2 for SDC project
   "bathrooms": int,
   "home_address": string,
   "sf": int,
-  "home_image": .jpg file,
+  "home_image": url string,
   "heart_filled": boolean
 }
 ```
@@ -39,7 +39,7 @@ ______________________________________________________
   "bathrooms": int,
   "home_address": string,
   "sf": int,
-  "home_image": .jpg file,
+  "home_image": url string,
   "heart_filled": boolean
 }
 ```
@@ -62,7 +62,7 @@ ______________________________________________________
   "bathrooms": int,
   "home_address": string,
   "sf": int,
-  "home_image": .jpg file,
+  "home_image": url string,
   "heart_filled": boolean
 ]
 ```
